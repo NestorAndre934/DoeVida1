@@ -1,0 +1,7 @@
+{
+  "name": "doevia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
