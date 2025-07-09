@@ -1,4 +1,4 @@
-📱 DoeVida
+📱 ##DoeVida##
 
 Aplicativo móvel desenvolvido com Ionic + Angular + Firebase, cujo objetivo é conectar doadores de sangue a campanhas e solicitações em tempo real.
 
@@ -8,7 +8,7 @@ Ionic Framework (UI nativa para mobile)
 
 Angular (arquitetura SPA)
 
-Firebase:
+**Firebase**:
 
    -Authentication (login por e-mail/senha)
 
