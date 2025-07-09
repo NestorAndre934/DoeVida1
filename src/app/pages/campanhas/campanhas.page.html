@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+
+  <h2 style="text-align: center; margin-bottom: 20px;">Campanhas Disponíveis</h2>
+
+    <ion-list *ngIf="(campanhas$ | async) as campanhas">
+    <ng-container *ngIf="campanhas.length > 0; else semCampanhas">
+      <ng-container *ngFor="let campanha of campanhas">
+        <ion-item button (click)="toggleDetalhes(campanha)">
+          <ion-label>
+            <h3 style="font-weight: bold; color: #d32f2f;">{{ campanha.titulo }}</h3>
+            <p>📍 {{ campanha.local }}</p>
+            <p>🗓️ {{ campanha.data }}</p>
+          </ion-label>
+        </ion-item>
+
+        <div *ngIf="campanhaSelecionada?.id === campanha.id" class="detalhes-campanha">
+          <ion-card>
+            <ion-card-content>
+              <p><strong>Título:</strong> {{ campanha.titulo }}</p>
+              <p><strong>Local:</strong> {{ campanha.local }}</p>
+              <p><strong>Data:</strong> {{ campanha.data }}</p>
+              <p *ngIf="campanha.descricao"><strong>Descrição:</strong> {{ campanha.descricao }}</p>
+              <ion-button *ngIf="isAdmin" color="danger" expand="block" (click)="deletarCampanha(campanha.id)">
+                🗑️ Excluir Campanha
+              </ion-button>
+          </ion-card-content>
+
+          </ion-card>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+
+  <ng-template #semCampanhas>
+    <div style="text-align: center; color: #888; margin-top: 30px;">
+      Nenhuma campanha encontrada no momento.
+    </div>
+  </ng-template>
+
+  <ion-button *ngIf="isAdmin" expand="block" color="primary" (click)="criarCampanha()" style="margin-top: 30px;">
+    Criar Nova Campanha
+  </ion-button>
+
+</ion-content>
+
+<app-footer></app-footer>

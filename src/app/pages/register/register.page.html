@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding ion-padding1">
+
+  <ion-item>
+    <ion-label position="floating">Nome Completo</ion-label>
+    <ion-input [(ngModel)]="nome" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input [(ngModel)]="telefone" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-items-floating">
+    <ion-label class="ion-items-label-floating">Tipo Sanguíneo</ion-label>
+    <ion-select [(ngModel)]="tipoSanguineo">
+      <ion-select-option value="A+">A+</ion-select-option>
+      <ion-select-option value="A-">A-</ion-select-option>
+      <ion-select-option value="B+">B+</ion-select-option>
+      <ion-select-option value="B-">B-</ion-select-option>
+      <ion-select-option value="AB+">AB+</ion-select-option>
+      <ion-select-option value="AB-">AB-</ion-select-option>
+      <ion-select-option value="O+">O+</ion-select-option>
+      <ion-select-option value="O-">O-</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Senha</ion-label>
+    <ion-input [(ngModel)]="senha" type="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="registrar()">Registrar</ion-button>
+
+  <ion-button expand="block" fill="clear" routerLink="/login">Já tenho conta</ion-button>
+
+</ion-content>
+
+<app-footer></app-footer>

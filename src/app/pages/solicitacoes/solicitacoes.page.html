@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <!-- ✅ MINHAS SOLICITAÇÕES -->
+  <h2>Minhas Solicitações</h2>
+
+  <ion-list *ngIf="(minhasSolicitacoes$ | async) as minhasSolicitacoes">
+    <ng-container *ngIf="minhasSolicitacoes.length > 0; else semMinhas">
+      <ng-container *ngFor="let s of minhasSolicitacoes">
+        <ion-item button detail (click)="abrirDetalhes(s)">
+          <ion-label>
+            <h3>{{ s.tipo }}</h3>
+            <p>Data: {{ s.data }} - Status: {{ s.status }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-card *ngIf="itemSelecionadoId === s.id">
+          <ion-card-header>
+            <ion-card-title>Detalhes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Tipo:</strong> {{ s.tipo_sanguineo }}</p>
+            <p><strong>Data:</strong> {{ s.data }}</p>
+            <p><strong>Status:</strong> {{ s.status }}</p>
+            <p><strong>Descrição:</strong> {{ s.descricao || 'Sem descrição' }}</p>
+            <ion-button expand="block" color="danger" (click)="deletarSolicitacao(s.id)">
+              🗑️ Deletar Solicitação
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+
+  <ng-template #semMinhas>
+    <p>Você ainda não criou nenhuma solicitação.</p>
+  </ng-template>
+
+  <ion-button expand="block" color="primary" (click)="novaSolicitacao()">Nova Solicitação</ion-button>
+
+  <!-- ✅ OUTRAS SOLICITAÇÕES -->
+  <h2 style="margin-top: 40px;">Solicitações de Outros Usuários</h2>
+
+  <ion-list *ngIf="(outrasSolicitacoes$ | async) as outrasSolicitacoes">
+    <ng-container *ngIf="outrasSolicitacoes.length > 0; else semOutros">
+      <ng-container *ngFor="let o of outrasSolicitacoes">
+        <ion-item button detail (click)="abrirDetalhes(o)">
+          <ion-label>
+            <h3>{{ o.tipo }}</h3>
+            <p>Data: {{ o.data }} - Status: {{ o.status }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-card *ngIf="itemSelecionadoId === o.id">
+          <ion-card-header>
+            <ion-card-title>Detalhes</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Tipo:</strong> {{ o.tipo_sanguineo }}</p>
+            <p><strong>Data:</strong> {{ o.data }}</p>
+            <p><strong>Status:</strong> {{ o.status }}</p>
+            <p><strong>Descrição:</strong> {{ o.descricao || 'Sem descrição' }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+    </ng-container>
+  </ion-list>
+
+  <ng-template #semOutros>
+    <p>Nenhuma solicitação de outros usuários no momento.</p>
+  </ng-template>
+</ion-content>
+
+<app-footer></app-footer>

@@ -1,0 +1,85 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffffcc; /* branco com opacidade */
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.banner-container {
+  text-align: center;
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  gap: 10px;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+}
+
+.item-card {
+  background: rgba(71, 70, 70, 0.15); /* translúcido sobre fundo escuro */
+  backdrop-filter: blur(20px); /* efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  min-width: 260px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sobre-bg {
+  --background: none;
+  background: url('/assets/2.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+ion-card-header ion-card-title,
+ion-card-content p {
+  color: #fff;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(7, 7, 7, 0.7);
+}
+
+ion-button {
+  --color: #4879ce;
+  --background: transparent;
+  --background-hover: rgba(20, 15, 15, 0.9);
+  --border-radius: 10px;
+  font-weight: bold;
+}

@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+
+  <h2>Nova Solicitação</h2>
+
+  <ion-item>
+    <ion-label position="stacked">Tipo Sanguíneo</ion-label>
+    <ion-select [(ngModel)]="tipoSanguineo">
+      <ion-select-option value="A+">A+</ion-select-option>
+      <ion-select-option value="A-">A-</ion-select-option>
+      <ion-select-option value="B+">B+</ion-select-option>
+      <ion-select-option value="B-">B-</ion-select-option>
+      <ion-select-option value="AB+">AB+</ion-select-option>
+      <ion-select-option value="AB-">AB-</ion-select-option>
+      <ion-select-option value="O+">O+</ion-select-option>
+      <ion-select-option value="O-">O-</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Hospital</ion-label>
+    <ion-input [(ngModel)]="hospital" placeholder="Nome do hospital"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Descrição</ion-label>
+    <ion-textarea [(ngModel)]="descricao" placeholder="Descreva a situação..."></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="salvar()">Salvar Solicitação</ion-button>
+
+</ion-content>
+
+<app-footer></app-footer>

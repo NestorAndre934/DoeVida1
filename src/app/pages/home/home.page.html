@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding sobre-bg">
+
+  <!-- Descrição -->
+  <ion-card class="item-card">
+    <ion-card-header>
+      <ion-card-title>Bem-vindo ao DoeVida 💉❤️</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Conectamos doadores de sangue com campanhas e solicitações em tempo real. Sua doação pode salvar vidas
+</p>
+      </ion-card-content>
+  </ion-card>
+
+  <!-- Campanha ativa -->
+  <ion-card class="item-card">
+    <ion-card-header class="ion-justify-content-between" style="display: flex; align-items: center;">
+      <ion-card-title>Campanha Ativa</ion-card-title>
+      <ion-button fill="clear" size="small" (click)="verTodasCampanhas()">Ver todas</ion-button>
+    </ion-card-header>
+    <ion-card-content *ngIf="(campanhas$ | async) as campanhas">
+      <ng-container *ngIf="campanhas.length > 0; else semCampanha">
+        <p><strong>📍 Local:</strong> {{ campanhas[0].local }}</p>
+        <p><strong>🗓️ Data:</strong> {{ campanhas[0].data }}</p>
+        <p><strong>Título:</strong> {{ campanhas[0].titulo }}</p>
+      </ng-container>
+      <ng-template #semCampanha>
+        <p>Nenhuma campanha disponível.</p>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Solicitação urgente -->
+  <ion-card class="item-card">
+    <ion-card-header class="ion-justify-content-between" style="display: flex; align-items: center;">
+      <ion-card-title>Solicitação Urgente</ion-card-title>
+      <ion-button fill="clear" size="small" (click)="verTodasSolicitacoes()">Ver todas</ion-button>
+    </ion-card-header>
+    <ion-card-content *ngIf="(solicitacoes$ | async) as solicitacoes">
+      <ng-container *ngIf="solicitacoes.length > 0; else semSolicitacao">
+        <p><strong>{{ solicitacoes[0].tipo_sanguineo }}</strong> - {{ solicitacoes[0].hospital }}</p>
+        <p>{{ solicitacoes[0].descricao || 'Sem descrição.' }}</p>
+      </ng-container>
+      <ng-template #semSolicitacao>
+        <p>Nenhuma solicitação urgente no momento.</p>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<app-footer></app-footer>

@@ -1,3 +1,39 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-menu contentId="main-content" side="start">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button (click)="home()">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Início</ion-label>
+        </ion-item>
+        <ion-item button (click)="campanha()">
+          <ion-icon name="heart-outline" slot="start"></ion-icon>
+          <ion-label>Campanhas</ion-label>
+        </ion-item>
+        <ion-item button (click)="solicitacao()">
+          <ion-icon name="alert-circle-outline" slot="start"></ion-icon>
+          <ion-label>Solicitações</ion-label>
+        </ion-item>
+        <ion-item button (click)="sobre()">
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+          <ion-label>Sobre</ion-label>
+        </ion-item>
+        <ion-item button (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Sair</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div id="main-content">
+
+  </div>
+    <ion-router-outlet></ion-router-outlet>
 </ion-app>
